@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>Curso Javascript</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <input id="nome">
+    </div>
+
+
+    <script>
+        var linkElement = document.createElement('a')
+
+        linkElement.setAttribute('href', 'https://github.com/mrbrunelli')
+        linkElement.setAttribute('target', '_blank')
+        linkElement.setAttribute('title', 'GitHub do Matheus Ricardo Brunelli')
+
+        var textElement = document.createTextNode('Acessar o Github do mrbrunelli')
+        linkElement.appendChild(textElement)
+
+        var containerElement = document.querySelector('div#app')
+        containerElement.appendChild(linkElement)
+
+        var inputElement = document.querySelector('input#nome')
+
+        inputElement.onmouseover = function() {
+            escondeInput()
+        }
+
+        function escondeInput() {
+            containerElement.removeChild(inputElement)
+        }
+    </script>
+</body>
+
+</html>

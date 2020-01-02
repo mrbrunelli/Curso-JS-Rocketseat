@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>Curso Javascript</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <input type="text" name="nome" id="nome">
+        <button class="botao">Adicionar</button>
+    </div>
+
+    <script>
+        var inputElement = document.querySelector('input#nome')
+        var btnElement = document.querySelector('button.botao')
+
+        // ADICIONAR UM EVENTO DE ONCLICK NA VARIAVEL QUE RECEBO DO HTML, E DEPOIS CHAMAR UMA FUNÇÃO
+        btnElement.addEventListener('click', mostraConteudo)
+
+        function mostraConteudo() {
+            var txt = inputElement.value
+            alert(txt)
+        }
+    </script>
+</body>
+
+</html>
