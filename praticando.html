@@ -71,12 +71,12 @@
         }
 
         imgElement.onmouseover = function() {
-            imgElement.style.width = '200px'
+            imgElement.style.transform = 'scale(2.2)'
             imgElement.style.transition = '500ms'
         }
 
         imgElement.onmouseout = function() {
-            imgElement.style.width = '120px'
+            imgElement.style.transform = 'scale(1.0)'
         }
 
         function textoInput() {
@@ -93,7 +93,7 @@
         window.document.body.style.textAlign = 'center'
         divElement.style.backgroundColor = 'orange'
         inputElement.style.boxShadow = '3px 2px 3px 0px rgba(0, 0, 0, 0.2)'
-        divElement.style.margin = '100px 300px'
+        divElement.style.margin = '50px 300px'
         divElement.style.width = '700px'
         divElement.style.padding = '50px'
         divElement.style.boxShadow = '3px 5px 8px 0px rgba(0, 0, 0, 0.2)'
@@ -106,6 +106,7 @@
         novaDiv.style.borderRadius = '15px'
         imgElement.style.borderRadius = '50%'
         imgElement.style.boxShadow = '3px 5px 8px 0px rgba(0, 0, 0, 0.2)'
+        btnElement.style.marginTop = '30px'
     </script>
 </body>
 
