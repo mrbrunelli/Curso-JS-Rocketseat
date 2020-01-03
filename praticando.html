@@ -25,6 +25,13 @@
         inputElement.setAttribute('placeholder', 'Digite uma mensagem...')
         inputElement.setAttribute('size', '40')
 
+        inputElement.onblur = function() {
+            var txt = inputElement.value
+            if (txt == '' || txt == null) {
+                alert('Campo Obrigatório!')
+            }
+        }
+
         var novaDiv = document.createElement('div')
         novaDiv.setAttribute('id', 'novadiv')
         window.document.body.appendChild(novaDiv)
