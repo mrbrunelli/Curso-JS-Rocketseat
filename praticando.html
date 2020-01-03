@@ -22,6 +22,14 @@
         var divElement = document.querySelector('div#app') // aqui eu to pegando id
         var togglerElement = document.querySelector('button#toggler')
 
+        const inputEnter = document.querySelector('input[name=nome]')
+        inputEnter.onkeyup = function(e) {
+            var key = e.which || e.keyCode
+            if (key == 13) {
+                textoInput()
+            }
+        }
+
 
         var val = 1
         togglerElement.onclick = function() {
@@ -34,11 +42,17 @@
             }
         }
 
-        buttonElement.onclick = function() {
+        function textoInput() {
             var txt = inputElement.value
             alert(`Mensagem: ${txt}`)
         }
 
+        buttonElement.onclick = function() {
+            textoInput()
+        }
+
+        window.document.body.style.backgroundColor = 'orange'
+        divElement.style.backgroundColor = 'orange'
         inputElement.style.boxShadow = '3px 2px 3px 0px rgba(0, 0, 0, 0.2)'
         divElement.style.margin = '200px 400px'
         divElement.style.width = '400px'
