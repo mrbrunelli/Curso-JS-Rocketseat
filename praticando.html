@@ -15,12 +15,14 @@
         <input type="text" name="nome">
         <button class="botao">Me pressione</button>
     </div>
+    <p id="msg"></p>
 
     <script>
         var inputElement = document.querySelector('input[name=nome]') //aqui eu to pegando o name
         var buttonElement = document.querySelector('button.botao') // aqui eu to pegando a class
         var divElement = document.querySelector('div#app') // aqui eu to pegando id
         var togglerElement = document.querySelector('button#toggler')
+        var pElement = document.querySelector('p#msg')
 
         inputElement.setAttribute('placeholder', 'Digite uma mensagem...')
         inputElement.setAttribute('size', '40')
@@ -28,7 +30,9 @@
         inputElement.onblur = function() {
             var txt = inputElement.value
             if (txt == '' || txt == null) {
-                alert('Campo Obrigatório!')
+                pElement.innerText = 'Campo Obrigatório!!'
+            } else {
+                pElement.innerText = ''
             }
         }
 
