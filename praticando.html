@@ -22,6 +22,24 @@
         var divElement = document.querySelector('div#app') // aqui eu to pegando id
         var togglerElement = document.querySelector('button#toggler')
 
+        inputElement.setAttribute('placeholder', 'Digite uma mensagem...')
+        inputElement.setAttribute('size', '40')
+
+        var novaDiv = document.createElement('div')
+        novaDiv.setAttribute('id', 'novadiv')
+        window.document.body.appendChild(novaDiv)
+
+        var imgElement = document.createElement('img')
+        imgElement.setAttribute('src', 'https://media.licdn.com/dms/image/C4D0BAQHdXMDrKuDIag/company-logo_200_200/0?e=2159024400&v=beta&t=4Q3TMpqzKCO3I3767miCkbiw151WBojdZUCPRuwtxTY')
+        imgElement.setAttribute('width', '120')
+        novaDiv.appendChild(imgElement)
+
+        var btnElement = document.createElement('button')
+        btnElement.setAttribute('id', 'btn')
+        window.document.body.appendChild(btnElement)
+        var btnText = document.createTextNode('Esconder imagem')
+        btnElement.appendChild(btnText)
+
         const inputEnter = document.querySelector('input[name=nome]')
         inputEnter.onkeyup = function(e) {
             var key = e.which || e.keyCode
@@ -29,7 +47,6 @@
                 textoInput()
             }
         }
-
 
         var val = 1
         togglerElement.onclick = function() {
@@ -42,9 +59,30 @@
             }
         }
 
+        var val2 = 1
+        btnElement.onclick = function() {
+            if (val2 == 0) {
+                imgElement.style.display = 'inline'
+                val2 = 1
+            } else {
+                imgElement.style.display = 'none'
+                val2 = 0
+            }
+        }
+
+        imgElement.onmouseover = function() {
+            imgElement.style.width = '200px'
+            imgElement.style.transition = '500ms'
+        }
+
+        imgElement.onmouseout = function() {
+            imgElement.style.width = '120px'
+        }
+
         function textoInput() {
             var txt = inputElement.value
             alert(`Mensagem: ${txt}`)
+            inputElement.value = ''
         }
 
         buttonElement.onclick = function() {
@@ -52,12 +90,20 @@
         }
 
         window.document.body.style.backgroundColor = 'orange'
+        window.document.body.style.textAlign = 'center'
         divElement.style.backgroundColor = 'orange'
         inputElement.style.boxShadow = '3px 2px 3px 0px rgba(0, 0, 0, 0.2)'
-        divElement.style.margin = '200px 400px'
-        divElement.style.width = '400px'
+        divElement.style.margin = '100px 300px'
+        divElement.style.width = '700px'
         divElement.style.padding = '50px'
         divElement.style.boxShadow = '3px 5px 8px 0px rgba(0, 0, 0, 0.2)'
+        novaDiv.style.width = '700px'
+        novaDiv.style.marginLeft = '300px'
+        novaDiv.style.padding = '50px'
+        novaDiv.style.boxShadow = '3px 5px 8px 0px rgba(0, 0, 0, 0.2)'
+        novaDiv.style.textAlign = 'center'
+        imgElement.style.borderRadius = '50%'
+        imgElement.style.boxShadow = '3px 5px 8px 0px rgba(0, 0, 0, 0.2)'
     </script>
 </body>
 
