@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <button id="toggler">Esconde / Mostra</button>
+        <input type="text" name="nome">
+        <button class="botao">Me pressione</button>
+    </div>
+
+    <script>
+        var inputElement = document.querySelector('input[name=nome]') //aqui eu to pegando o name
+        var buttonElement = document.querySelector('button.botao') // aqui eu to pegando a class
+        var divElement = document.querySelector('div#app') // aqui eu to pegando id
+        var togglerElement = document.querySelector('button#toggler')
+
+
+        var val = 1
+        togglerElement.onclick = function() {
+            if (val == 0) {
+                inputElement.style.display = 'inline'
+                val = 1
+            } else {
+                inputElement.style.display = 'none'
+                val = 0
+            }
+        }
+
+        buttonElement.onclick = function() {
+            var txt = inputElement.value
+            alert(`Mensagem: ${txt}`)
+        }
+
+        inputElement.style.boxShadow = '3px 2px 3px 0px rgba(0, 0, 0, 0.2)'
+        divElement.style.margin = '200px 400px'
+        divElement.style.width = '400px'
+        divElement.style.padding = '50px'
+        divElement.style.boxShadow = '3px 5px 8px 0px rgba(0, 0, 0, 0.2)'
+    </script>
+</body>
+
+</html>
