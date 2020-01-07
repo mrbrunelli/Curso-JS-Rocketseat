@@ -25,7 +25,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" id="cep">
                     <div class="input-group-prepend">
-                        <button class="btn btn-primary">Verificar</button>
+                        <button class="btn btn-primary" id="botao" onclick="buscaCep(this)">Verificar</button>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 <input type="text" class="form-control" id="numero">
             </div>
             <div class="col-md-8 form-group">
-                <label for=bairro ">Bairro</label>
+                <label for="bairro">Bairro</label>
                 <input type="text " class="form-control " id="bairro ">
             </div>
             <div class="col-md-4 form-group ">
@@ -68,26 +68,25 @@
     <script>
         let inputCep = document.querySelector('input#cep')
         let cep = inputCep.value.replace('-', '')
-        let url = `http://viacep.com.br/ws/${cep}/json`
+        let url = 'http://viacep.com.br/ws/' + cep + '/json'
+
 
         let xhr = new XMLHttpRequest()
         xhr.open('GET', url, true)
-    
         xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4) {  // O CÓDIGO 4 É DE REQUISIÇÃO FINALIZADA
+            if (xhr.readyState == 4) { // O CÓDIGO 4 É DE REQUISIÇÃO FINALIZADA
                 if (xhr.status = 200) {
                     console.log(xhr.responseText)
                 }
             }
             xhr.send()
         }
-        
+
         function buscaCep() {
-            
+            alert(url)
         }
-    
     </script>
 
-    </body>
+</body>
 
 </html>
