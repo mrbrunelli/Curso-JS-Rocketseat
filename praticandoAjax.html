@@ -42,19 +42,19 @@
       </div>
       <div class="col-md-8 form-group">
         <label for="bairro">Bairro</label>
-        <input type="text " class="form-control " id="bairro " />
+        <input type="text " class="form-control " id="bairro" />
       </div>
       <div class="col-md-4 form-group ">
         <label for="complemento ">Complemento</label>
-        <input type="text " class="form-control " id="complemento " />
+        <input type="text " class="form-control " id="complemento" />
       </div>
       <div class="col-md-8 form-group ">
         <label for="cidade ">Cidade</label>
-        <input type="text " class="form-control " id="cidade " />
+        <input type="text " class="form-control " id="cidade" />
       </div>
       <div class="col-md-4 form-group ">
         <label for="estado ">Estado</label>
-        <input type="text " class="form-control " id="estado " />
+        <input type="text " class="form-control " id="estado" />
       </div>
       <div class="col-md-2 offset-md-10 ">
         <button class="btn btn-light " type="reset ">Cancelar</button>
@@ -77,6 +77,7 @@
     // EU FIQUEI VÁRIOS DIAS TENTANDO RODAR ESSE AJAX, AGORA EU FUI ENTENDER
     // EU PRECISO DEIXAR TUDO DENTRO DA FUNÇÃO, POIS AS VARIÁVEIS SÓ SÃO RECONHECIDAS DENTRO DA FUNÇÃO
     // EU DAVA UM CONSOLE.LOG DA VARIAVEL URL E ELE RETORNAVA EM BRANCO, PORQUE A VARIAVEL NÃO É GLOBAL
+    // CEP PARA TESTE 13845-373
 
     function buscaCep() {
       let inputCep = document.querySelector("input#cep")
@@ -88,12 +89,19 @@
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) { // O CÓDIGO 4 É DE REQUISIÇÃO FINALIZADA
           if (xhr.status = 200) {
-            console.log(xhr.responseText)
+            preencheCampos(JSON.parse(xhr.responseText))
           }
         }
       }
       xhr.send()
+    }
 
+    function preencheCampos(json) {
+      document.querySelector('input#endereco').value = json.logradouro
+      document.querySelector('input#bairro').value = json.bairro
+      document.querySelector('input#complemento').value = json.complemento
+      document.querySelector('input#cidade').value = json.localidade
+      document.querySelector('input#estado').value = json.uf
     }
 
 
