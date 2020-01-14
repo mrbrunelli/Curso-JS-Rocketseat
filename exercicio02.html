@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 02</title>
+</head>
+
+<body>
+
+    <input type="text" name="user">
+    <button onclick="adicionar()">Adicionar</button>
+    <ul id="lista">
+
+    </ul>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function adicionar() {
+            var user = document.querySelector('input[name=user]').value
+            var url = `https://api.github.com/users/${user}/repos`
+            var lista = document.querySelector('ul#lista')
+
+            axios.get(url)
+                .then(function(response) {
+                    for (let i = 0; i < 18; i++) {
+                        lista.innerHTML += `<li>${JSON.stringify(response.data[i].name)}</li>`
+                    }
+                    console.log(response)
+                })
+                .catch(function(error) {
+                    console.warn(error)
+                })
+
+        }
+    </script>
+</body>
+
+</html>

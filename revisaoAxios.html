@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Revisao Axios</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        var url = 'https://api.github.com/users/mrbrunelli'
+
+        axios.get(url)
+            .then(function(response) {
+                console.log(response)
+            })
+            .catch(function(error) {
+                console.warn(error)
+            })
+    </script>
+</body>
+
+</html>

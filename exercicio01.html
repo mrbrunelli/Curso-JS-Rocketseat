@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício 01</title>
+</head>
+
+<body>
+
+    <script>
+        function checaIdade(idade) {
+            return new Promise(function(resolve, reject) {
+                if (idade >= 18) {
+                    resolve('Maior de idade')
+                } else {
+                    reject('Menor de idade')
+                }
+            })
+        }
+
+        checaIdade(17)
+            .then(function() {
+                console.log("Maior que 18")
+            })
+            .catch(function() {
+                console.log("Menor que 18")
+            })
+    </script>
+
+</body>
+
+</html>

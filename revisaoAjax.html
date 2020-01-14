@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Revisao Ajax</title>
+</head>
+
+<body>
+
+
+    <script>
+        var url = 'https://api.github.com/users/mrbrunelli'
+
+        var minhaPromise = function() {
+            return new Promise(function(resolve, reject) {
+                var xhr = new XMLHttpRequest()
+                xhr.open('GET', url)
+                xhr.send(null)
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            resolve(JSON.parse(xhr.responseText))
+                        } else {
+                            reject('Erro na requisição')
+                        }
+                    }
+                }
+            })
+        }
+
+        minhaPromise()
+            .then(function(response) {
+                console.log(response)
+            })
+            .catch(function(error) {
+                console.warn(error)
+            })
+    </script>
+</body>
+
+</html>
