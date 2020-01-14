@@ -19,9 +19,9 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         function adicionar() {
-            var user = document.querySelector('input[name=user]').value
-            var url = `https://api.github.com/users/${user}/repos`
-            var lista = document.querySelector('ul#lista')
+            let user = document.querySelector('input[name=user]').value
+            let url = `https://api.github.com/users/${user}/repos`
+            let lista = document.querySelector('ul#lista')
 
             axios.get(url)
                 .then(function(response) {
