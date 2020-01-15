@@ -29,8 +29,10 @@
                     if (response.status === 102) {
                         alert('Carregando')
                     }
-
-                    for (let i = 0; i < 18; i++) {
+                    var count = Object.keys(response.data).length;
+                    //console.log(count);
+                    for (let i = 0; i < count; i++) {
+                        JSON.stringify(response.data[i].name)
                         lista.innerHTML += `<li>${JSON.stringify(response.data[i].name)}</li>`
                     }
                     console.log(response)
